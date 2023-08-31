@@ -51,7 +51,7 @@ model Member {
   id   String     @id @default(uuid())
   role MemberRole @default(GUEST)
 
-  Profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String?
 
   Server   Server? @relation(fields: [serverId], references: [id], onDelete: Cascade)
@@ -75,7 +75,7 @@ model Channel {
   name String
   type ChannelType @default(TEXT)
 
-  Profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String?
 
   Server   Server? @relation(fields: [serverId], references: [id], onDelete: Cascade)

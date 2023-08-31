@@ -1,6 +1,6 @@
 import { currentUser, redirectToSignIn } from "@clerk/nextjs";
 
-import { db } from '@/lib/ds';
+import { db } from '@/lib/db';
 
 export const initialProfile = async () => {
     const user = await currentUser();   //  Return the current user logged in on system
@@ -17,12 +17,12 @@ export const initialProfile = async () => {
         }
     });
 
-    // If it was abble to find it's profile, return then
+    // If it was able to find it's profile, return then
     if (profile) {
         return profile;
     }
 
-    // If it wan not abble to find it's profile, then create a new one
+    // If it wan not able to find it's profile, then create a new one
     const newProfile = await db.profile.create({
         data: {
             userId: user.id,

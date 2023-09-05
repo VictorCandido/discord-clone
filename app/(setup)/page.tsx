@@ -1,13 +1,12 @@
 import { redirect } from 'next/navigation';
 import { db } from "@/lib/db";
 import { initialProfile } from "@/lib/initial-profile";
-import profileModel from '@/models/profileModel';
 import { InitialModal } from '@/components/modals/initial-modal';
 
 
 const SetupPage = async () => {
     // First of all, get the user profile
-    const profile = await initialProfile() as profileModel;
+    const profile = await initialProfile();
 
     // With the user's profile, try to find some server that it may own
     const server = await db.server.findFirst({

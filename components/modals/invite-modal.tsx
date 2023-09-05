@@ -19,7 +19,7 @@ export const InviteModal = () => {
     const { server } = data;
 
     const [copied, setCopied] = useState(false);
-    const [isLoading, seIstLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
@@ -35,7 +35,7 @@ export const InviteModal = () => {
 
     const onNew = async () => {
         try {
-            seIstLoading(true);
+            setIsLoading(true);
 
             const response = await axios.patch(`/api/servers/${server?.id}/invite-code`);
             
@@ -43,7 +43,7 @@ export const InviteModal = () => {
         } catch (error) {
             console.log(error);
         } finally {
-            seIstLoading(false);
+            setIsLoading(false);
         }
     }
 

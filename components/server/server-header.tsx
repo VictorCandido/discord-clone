@@ -7,7 +7,7 @@ import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } fro
 import { useModal } from "@/hooks/use-modal-store";
 
 interface ServerHeaderProps {
-    server: ServerWithMembersWithProfiles | any;
+    server: ServerWithMembersWithProfiles;
     role?: MemberRole;
 }
 

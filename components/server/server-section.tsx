@@ -11,7 +11,7 @@ interface ServerSectionProps {
     role?: MemberRole;
     sectionType: 'channels' | 'members';
     channelType?: ChannelType;
-    server?: ServerWithMembersWithProfiles | any;
+    server?: ServerWithMembersWithProfiles;
 }
 
 const ServerSection = (props: ServerSectionProps) => {

@@ -7,7 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import UserAvatar from "../user-avatar";
 
 interface ServerMemberProps {
-    member: Member & { profile: Profile | null };
+    member: Member & { profile: Profile };
     server: Server;
 }
 

@@ -51,11 +51,11 @@ model Member {
   id   String     @id @default(uuid())
   role MemberRole @default(GUEST)
 
-  profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
-  profileId String?
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId String
 
-  Server   Server? @relation(fields: [serverId], references: [id], onDelete: Cascade)
-  serverId String?
+  Server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  serverId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -75,11 +75,11 @@ model Channel {
   name String
   type ChannelType @default(TEXT)
 
-  profile   Profile? @relation(fields: [profileId], references: [id], onDelete: Cascade)
-  profileId String?
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId String
 
-  Server   Server? @relation(fields: [serverId], references: [id], onDelete: Cascade)
-  serverId String?
+  Server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  serverId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

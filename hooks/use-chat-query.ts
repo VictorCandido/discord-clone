@@ -10,7 +10,7 @@ interface ChatQueryProps {
     paramValue: string;
 }
 
-export const useChateQuery = ({ apiUrl, paramKey, paramValue, queryKey }: ChatQueryProps) => {
+export const useChatQuery = ({ apiUrl, paramKey, paramValue, queryKey }: ChatQueryProps) => {
     const { isConnected } = useSocket();
 
     const fetchMessages = async ({ pageParam = undefined }) => {

@@ -13,8 +13,6 @@ export const getOrCreateConversation = async (memberOneId: string, memberTwoId: 
 }
 
 const findConversation = async (memberOneId: string, memberTwoId: string) => {
-    console.log('#### findConversation', memberOneId, memberTwoId)
-    
     try {
         return await db.conversation.findFirst({
             where: {
@@ -43,8 +41,6 @@ const findConversation = async (memberOneId: string, memberTwoId: string) => {
 }
 
 const createNewConversation = async (memberOneId: string, memberTwoId: string) => {
-    console.log('#### createNewConversation', memberOneId, memberTwoId)
-
     try {
         return await db.conversation.create({
             data: {

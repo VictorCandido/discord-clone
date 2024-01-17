@@ -1,0 +1,10 @@
+services:
+  postgre:
+    image: postgres
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_PASSWORD: 'root'
+      POSTGRES_DB: 'discord-clone'
+    volumes:
+      - ./postgres-local:/docker-entrypoint-initdb.d

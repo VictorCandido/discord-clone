@@ -18,7 +18,7 @@ interface ServerSearchProps {
 }
 
 const ServerSearch = ({ data }: ServerSearchProps) => {
-    const [ open, setOpen ] = useState(false);
+    const [open, setOpen] = useState(false);
     const router = useRouter();
     const params = useParams();
 
@@ -35,21 +35,21 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
     }, []);
 
     const onClick = (id: string, type: 'channel' | 'member') => {
-    setOpen(false);
+        setOpen(false);
 
         if (type == 'member') {
-            return router.push(`/servers/${params.serverId}/conversation/${id}`);
+            return router.push(`/servers/${params?.serverId}/conversation/${id}`);
         }
 
         if (type == 'channel') {
-            return router.push(`/servers/${params.serverId}/channels/${id}`);
+            return router.push(`/servers/${params?.serverId}/channels/${id}`);
         }
     }
 
     return (
         <>
             <button
-                onClick={() => setOpen(true)} 
+                onClick={() => setOpen(true)}
                 className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition"
             >
                 <SearchIcon className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
@@ -59,7 +59,7 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
                     Search
                 </p>
 
-                <kbd 
+                <kbd
                     className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto"
                 >
                     <span className="text-xs">CMD</span>k
@@ -67,24 +67,24 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
             </button>
 
             <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Search all channels and members"/>
+                <CommandInput placeholder="Search all channels and members" />
 
                 <CommandList>
                     <CommandEmpty>
                         No Results found
                     </CommandEmpty>
-                    
+
                     {data.map(({ label, type, data }) => {
                         if (!data?.length) return null;
 
                         return (
                             <CommandGroup key={label} heading={label}>
-                                { data?.map(({ id, icon, name }) => (
+                                {data?.map(({ id, icon, name }) => (
                                     <CommandItem key={id} onSelect={() => onClick(id, type)}>
-                                        { icon }
-                                        <span>{ name }</span>
+                                        {icon}
+                                        <span>{name}</span>
                                     </CommandItem>
-                                )) }
+                                ))}
                             </CommandGroup>
                         )
                     })}
@@ -93,5 +93,5 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
         </>
     );
 }
- 
+
 export default ServerSearch;
